@@ -1,27 +1,29 @@
 # Hamza Ahmed
 
-Computer Science student at the University of Minnesota Twin Cities, graduating May 2027. Based in Minneapolis. Interested in new-grad software engineering roles, with a focus on Python backends, data systems, and reliable application behavior.
+Computer Science student at the University of Minnesota Twin Cities, graduating May 2027. Based in Minneapolis and looking for new-grad software engineering opportunities.
 
-## Selected projects
+My projects focus on Python backends, data processing, and the applications built around them.
 
-### [HoopsLab](https://github.com/hamzaAhmed21st/hoopslab)
-NBA shot-quality analytics across six seasons: Python, scikit-learn, FastAPI, PostgreSQL, React, and TypeScript.
+## [HoopsLab — NBA shot-quality analytics](https://github.com/hamzaAhmed21st/hoopslab)
 
-- Built source validation and atomic season ingestion with repeat-import detection.
-- Implemented chronological model evaluation, calibrated probabilities, and validated inference.
-- Connected PostgreSQL analytics to an interactive React/SVG shot-chart dashboard.
+Explore a player's shots on an interactive court and compare actual shooting with model-estimated make probabilities.
 
-[Dashboard and overview](https://github.com/hamzaAhmed21st/hoopslab#dashboard-preview) · [Code and test evidence](https://github.com/hamzaAhmed21st/hoopslab/blob/main/docs/EVIDENCE.md) · [CI](https://github.com/hamzaAhmed21st/hoopslab/actions)
+- Imports six NBA seasons with source validation, transactional writes, and repeat-import detection.
+- Separates model training, calibration, selection, and held-out evaluation by game and time.
+- The published evaluation reports **0.6371 log loss versus 0.6428 for the logistic comparator**, across **218,701 held-out shots**.
 
-### [EventStream](https://github.com/hamzaAhmed21st/eventstream)
-Asynchronous service-metrics pipeline: FastAPI, Redis Streams, consumer-group workers, PostgreSQL, and React.
+Python · scikit-learn · FastAPI · PostgreSQL · React · TypeScript
 
-- Built transactional, duplicate-safe persistence with explicit conflict handling.
-- Tested integration behavior with real Redis/PostgreSQL and verified a containerized ingestion-to-query path.
-- Exposed service summaries and recent events through a React dashboard.
+[Dashboard](https://github.com/hamzaAhmed21st/hoopslab#dashboard-preview) · [Original results and provenance](https://github.com/hamzaAhmed21st/hoopslab/blob/main/docs/EVIDENCE.md#model-results-and-reproducibility) · [Code and tests](https://github.com/hamzaAhmed21st/hoopslab/blob/main/docs/EVIDENCE.md)
 
-[Dashboard and overview](https://github.com/hamzaAhmed21st/eventstream#dashboard) · [Code and test evidence](https://github.com/hamzaAhmed21st/eventstream/blob/main/docs/EVIDENCE.md) · [CI](https://github.com/hamzaAhmed21st/eventstream/actions)
+## [EventStream — asynchronous metrics pipeline](https://github.com/hamzaAhmed21st/eventstream)
 
-## Engineering interests
+Submit service metrics over HTTP, process them through Redis Streams, and view PostgreSQL-backed summaries in a dashboard.
 
-Data integrity, testable APIs, asynchronous processing, and reproducible data workflows. Each project links to its implementation, verification evidence, and current scope.
+- Uses stable event IDs, database uniqueness, and transactions to keep exact replays from creating duplicate rows.
+- Distinguishes conflicting payloads from valid replays and acknowledges deliveries after checking the database outcome.
+- Tests the pipeline with real Redis/PostgreSQL and a containerized ingestion-to-query smoke test.
+
+Python · FastAPI · Redis Streams · PostgreSQL · React · Docker Compose
+
+[Dashboard and local demo](https://github.com/hamzaAhmed21st/eventstream#dashboard) · [Implementation and tests](https://github.com/hamzaAhmed21st/eventstream/blob/main/docs/EVIDENCE.md)
